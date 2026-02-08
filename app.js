@@ -5,12 +5,17 @@ const app = express();
 // "express.json()" Middleware to support/add request.body.
 app.use(express.json());
 
+app.use((req, res, next) => {
+  req.requestTime = new Date().toISOString();
+  next();
+});
+
+// -- NODE - OLD WAY --
 // app.get('/', (req, res) => {
 //   res
 //     .status(200)
 //     .json({ message: 'Hello from the server side!', app: 'Natours' });
 // });
-
 // app.post('/', (req, res) => {
 //   res.send('You can post to this endpoint...');
 // });
@@ -20,8 +25,10 @@ const tours = JSON.parse(
 );
 
 const getAllTours = (req, res) => {
+  console.log(req.requestTime);
   res.status(200).json({
     status: 'success',
+    requestedAt: req.requestTime,
     results: tours.length,
     data: {
       tours,
