@@ -7,7 +7,9 @@ const userRouter = require('./routes/userRoutes');
 const app = express();
 
 // 1) MIDDLEWARES
-app.use(morgan('dev'));
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
 // "express.json()" Middleware to support/add request.body.
 app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
