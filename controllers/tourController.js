@@ -22,7 +22,7 @@ exports.getTour = (req, res) => {
 
   // if (id > tours.length) {
   if (!tour) {
-    res.status(404).json({
+    return res.status(404).json({
       status: 'fail',
       message: 'Invalid ID',
     });
@@ -61,7 +61,7 @@ exports.createTour = (req, res) => {
 
 exports.updateTour = (req, res) => {
   if (+req.params.id > tours.length) {
-    res.status(404).json({
+    return res.status(404).json({
       status: 'fail',
       message: 'Invalid ID',
     });
@@ -77,7 +77,7 @@ exports.updateTour = (req, res) => {
 
 exports.deleteTour = (req, res) => {
   if (+req.params.id > tours.length) {
-    res.status(404).json({
+    return res.status(404).json({
       status: 'fail',
       message: 'Invalid ID',
     });
