@@ -8,9 +8,9 @@ const app = express();
 
 // 1) MIDDLEWARES
 app.use(morgan('dev'));
-
 // "express.json()" Middleware to support/add request.body.
 app.use(express.json());
+app.use(express.static(`${__dirname}/public`));
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
