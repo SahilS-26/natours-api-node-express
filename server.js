@@ -1,13 +1,12 @@
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const dns = require('dns');
+const app = require('./app');
 
-// Configure DNS to use Google's DNS servers
+// Configure DNS to use Google's DNS servers (for connection MongoDB)
 dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 dotenv.config({ path: './config.env' });
-
-const app = require('./app');
 
 const DB = process.env.DATABASE.replace(
   '<db_password>',
