@@ -1,30 +1,5 @@
 const Tour = require('./../models/tourModel');
 
-// -- REFERENCE FOR PARAM MIDDLEWARE --
-// exports.checkID = (req, res, next, val) => {
-//   console.log(`Tour id is: ${val}`);
-//   if (req.params.id * 1 > tours.length) {
-//     return res.status(404).json({
-//       status: 'fail',
-//       message: 'Invalid ID',
-//     });
-//   }
-//   next();
-// };
-
-// exports.checkBody = (req, res, next) => {
-//   const { name, price } = req.body;
-
-//   if (!name || !price) {
-//     return res.status(400).json({
-//       status: 'fail',
-//       message: 'Missing name or price',
-//     });
-//   }
-
-//   next();
-// };
-
 exports.getAllTours = async (req, res) => {
   try {
     const tours = await Tour.find();
@@ -100,3 +75,31 @@ exports.deleteTour = (req, res) => {
     data: null,
   });
 };
+
+// ++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++
+// -- REFERENCE FOR PARAM MIDDLEWARE --
+// exports.checkID = (req, res, next, val) => {
+//   console.log(`Tour id is: ${val}`);
+//   if (req.params.id * 1 > tours.length) {
+//     return res.status(404).json({
+//       status: 'fail',
+//       message: 'Invalid ID',
+//     });
+//   }
+//   next();
+// };
+
+// exports.checkBody = (req, res, next) => {
+//   const { name, price } = req.body;
+
+//   if (!name || !price) {
+//     return res.status(400).json({
+//       status: 'fail',
+//       message: 'Missing name or price',
+//     });
+//   }
+//   next();
+// };
+// ++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++
