@@ -107,7 +107,7 @@ const tourSchema = new mongoose.Schema(
     guides: [
       {
         type: mongoose.Schema.ObjectId,
-        ref: 'User',
+        ref: 'User', // Always match the model name
       },
     ],
   },
